@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://sgy.gzcustoms.gov.cn/Contracts" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MessageServiceWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_MessageServiceWCF_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://sgy.gzcustoms.gov.cn/Contracts" location="http://localhost/SGY.MessageService.Web/MessageServiceWCF.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="WSHttpBinding_MessageServiceWCF" type="i0:MessageServiceWCF">
+    <wsp:PolicyReference URI="#WSHttpBinding_MessageServiceWCF_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCusCiqNo">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/GetCusCiqNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadCustomsData">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/DownloadCustomsData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadCiqData">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/DownloadCiqData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadAllData">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UploadAllData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadCustomsData">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UploadCustomsData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaveTime">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/GetSaveTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKey">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ActiveKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKeyByLoginName">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ActiveKeyByLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgRep">
+      <soap12:operation soapAction="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ReceiveMsgRep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessageServiceWCF">
+    <wsdl:port name="WSHttpBinding_MessageServiceWCF" binding="tns:WSHttpBinding_MessageServiceWCF">
+      <soap12:address location="http://localhost/SGY.MessageService.Web/MessageServiceWCF.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost/SGY.MessageService.Web/MessageServiceWCF.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

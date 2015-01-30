@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://sgy.gzcustoms.gov.cn/Contracts" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sgy.gzcustoms.gov.cn/Contracts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sgy.gzcustoms.gov.cn/Contracts/Imports">
+      <xsd:import schemaLocation="http://localhost/SGY.MessageService.Web/MessageServiceWCF.svc?xsd=xsd0" namespace="http://sgy.gzcustoms.gov.cn/Contracts" />
+      <xsd:import schemaLocation="http://localhost/SGY.MessageService.Web/MessageServiceWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/SGY.MessageService.Web/MessageServiceWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GZCustoms.Application.SGY.MessageService.Interface" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MessageServiceWCF_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_GetCusCiqNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCusCiqNo" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_GetCusCiqNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCusCiqNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_DownloadCustomsData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadCustomsData" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_DownloadCustomsData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadCustomsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_DownloadCiqData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadCiqData" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_DownloadCiqData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadCiqDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_UploadAllData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadAllData" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_UploadAllData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadAllDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_UploadCustomsData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadCustomsData" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_UploadCustomsData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadCustomsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_GetSaveTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSaveTime" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_GetSaveTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSaveTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_UpdatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_UpdatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_ActiveKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveKey" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_ActiveKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_ActiveKeyByLoginName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveKeyByLoginName" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_ActiveKeyByLoginName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveKeyByLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_ReceiveMsgRep_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgRep" />
+  </wsdl:message>
+  <wsdl:message name="MessageServiceWCF_ReceiveMsgRep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgRepResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MessageServiceWCF">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/SendMessage" message="tns:MessageServiceWCF_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/SendMessageResponse" message="tns:MessageServiceWCF_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCusCiqNo">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/GetCusCiqNo" message="tns:MessageServiceWCF_GetCusCiqNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/GetCusCiqNoResponse" message="tns:MessageServiceWCF_GetCusCiqNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadCustomsData">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/DownloadCustomsData" message="tns:MessageServiceWCF_DownloadCustomsData_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/DownloadCustomsDataResponse" message="tns:MessageServiceWCF_DownloadCustomsData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadCiqData">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/DownloadCiqData" message="tns:MessageServiceWCF_DownloadCiqData_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/DownloadCiqDataResponse" message="tns:MessageServiceWCF_DownloadCiqData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadAllData">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UploadAllData" message="tns:MessageServiceWCF_UploadAllData_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UploadAllDataResponse" message="tns:MessageServiceWCF_UploadAllData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadCustomsData">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UploadCustomsData" message="tns:MessageServiceWCF_UploadCustomsData_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UploadCustomsDataResponse" message="tns:MessageServiceWCF_UploadCustomsData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaveTime">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/GetSaveTime" message="tns:MessageServiceWCF_GetSaveTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/GetSaveTimeResponse" message="tns:MessageServiceWCF_GetSaveTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/Login" message="tns:MessageServiceWCF_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/LoginResponse" message="tns:MessageServiceWCF_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UpdatePassword" message="tns:MessageServiceWCF_UpdatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/UpdatePasswordResponse" message="tns:MessageServiceWCF_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKey">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ActiveKey" message="tns:MessageServiceWCF_ActiveKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ActiveKeyResponse" message="tns:MessageServiceWCF_ActiveKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKeyByLoginName">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ActiveKeyByLoginName" message="tns:MessageServiceWCF_ActiveKeyByLoginName_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ActiveKeyByLoginNameResponse" message="tns:MessageServiceWCF_ActiveKeyByLoginName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgRep">
+      <wsdl:input wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ReceiveMsgRep" message="tns:MessageServiceWCF_ReceiveMsgRep_InputMessage" />
+      <wsdl:output wsaw:Action="http://sgy.gzcustoms.gov.cn/Contracts/MessageServiceWCF/ReceiveMsgRepResponse" message="tns:MessageServiceWCF_ReceiveMsgRep_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

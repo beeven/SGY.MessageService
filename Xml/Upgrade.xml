@@ -1,0 +1,9 @@
+﻿<?xml version="1.0"?>
+<root>
+  <ProgramName>Public</ProgramName>
+  <SoftName>广州海关、广东省检验检疫局报关、报检数据一次录入系统</SoftName>
+  <PacketName>UpgradePackage.zip</PacketName>
+  <PacketUrl>http://210.21.48.13/service/upload/</PacketUrl>
+  <Version>3.0.0</Version>
+  <UpgradeXmlName>Upgrade.xml</UpgradeXmlName>
+</root>

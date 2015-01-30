@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TCS101Message>
+	<MessageHead>
+    <MessageType>001</MessageType>
+    <MessageId>T1907843510020111226F4FF60B86</MessageId>
+    <MessageTime>20111226104405</MessageTime>
+    <SenderId>T19078435100</SenderId>
+    <SenderAddress>T19078435100@TCS51002</SenderAddress>
+    <ReceiverId>T99999999999</ReceiverId>
+    <ReceiverAddress>T99999999999@TCS10001</ReceiverAddress>
+  </MessageHead>
+	<MessageBody>
+		<tcs:TcsFlow201 schemaLocation="http://www.chinaport.gov.cn/tcs/v2 TcsWorkFlow.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tcs="http://www.chinaport.gov.cn/tcs/v2">
+			<tcs:TcsUser>
+        		<tcs:UserId>T19078435100</tcs:UserId>
+        		<tcs:UserPrivateKey>0000000</tcs:UserPrivateKey>
+      		</tcs:TcsUser>
+			<tcs:TcsLink>
+	        <tcs:TcsLinkMan>
+	          <tcs:Name>管理员</tcs:Name>
+	          <tcs:Department>1</tcs:Department>
+	          <tcs:Duty>1111</tcs:Duty>
+	          <tcs:Telephone>
+	          </tcs:Telephone>
+	          <tcs:Mobile>1</tcs:Mobile>
+	          <tcs:Fax>1</tcs:Fax>
+	          <tcs:Address>
+	          </tcs:Address>
+	          <tcs:ZipCode>1</tcs:ZipCode>
+	          <tcs:Email>service@service.com</tcs:Email>
+	          <tcs:ImCode>1</tcs:ImCode>
+	          <tcs:ImType>1</tcs:ImType>
+	        </tcs:TcsLinkMan>
+	      </tcs:TcsLink>
+	      <tcs:TcsFlow>
+	        <tcs:MessageId>T1907843510020111225F4FF60B86</tcs:MessageId>
+	        <tcs:BpNo>EBT00010000001728</tcs:BpNo>
+	        <tcs:ActionList>
+	          <tcs:ActionId>a01</tcs:ActionId>
+	        </tcs:ActionList>
+	        <tcs:TaskId>T1907843510020111225F4FF60B86</tcs:TaskId>
+	        <tcs:TaskNote>广州-001</tcs:TaskNote>
+	        <tcs:CorpTaskId>
+	        </tcs:CorpTaskId>
+	        <tcs:TaskControl>
+	        </tcs:TaskControl>
+	      </tcs:TcsFlow>
+			<tcs:TcsData>
+				<tcs:DeclarationDocument xsi:schemaLocation="http://www.chinaport.gov.cn/tcs/v2" xmlns:tcs="http://www.chinaport.gov.cn/tcs/v2">
+					<tcs:TcsDocumentNo>T1907843510020111225F4FF60B81</tcs:TcsDocumentNo>
+					<tcs:DataCooperationType>001</tcs:DataCooperationType>
+					<tcs:EntryInformation>
+						<tcs:EntryIdentityInformationList table="DECL_HEAD">
+							<tcs:EntryIdentityInformation>
+								<tcs:EntryIdentity>001</tcs:EntryIdentity>
+								<tcs:CorporationCustomsCode map="TRADE_CO" format="an10" dec="经营单位代码"/>
+								<tcs:CorporationName map="TRADE_NAME" format="an..70" dec="经营单位名称"/>
+							</tcs:EntryIdentityInformation>
+							<tcs:EntryIdentityInformation>
+								<tcs:EntryIdentity>002</tcs:EntryIdentity>
+								<tcs:CorporationCustomsCode map="OWNER_CODE" format="an10"  dec="收货单位编码"/>
+								<tcs:CorporationName map="OWNER_NAME" format="an..70"  dec="收货单位名称"/>
+							</tcs:EntryIdentityInformation>
+							<tcs:EntryIdentityInformation>
+								<tcs:EntryIdentity>003</tcs:EntryIdentity>
+								<tcs:CorporationCustomsCode map="AGENT_CODE" format="an10"  dec="申报单位编码"/>
+								<tcs:CorporationName map="AGENT_NAME" format="an..70"  dec="申报单位名称"/>
+							</tcs:EntryIdentityInformation>
+							<tcs:EntryIdentityInformation>
+								<tcs:EntryIdentity>004</tcs:EntryIdentity>
+								<tcs:CorporationCustomsCode map="COP_CODE" format="an9"  dec="录入单位组织机构代码"/>
+								<tcs:CorporationName map="COP_NAME" format="an..70"  dec="录入单位名称"/>
+							</tcs:EntryIdentityInformation>
+						</tcs:EntryIdentityInformationList>
+						<tcs:LogisticsLocationInformationList table="DECL_HEAD">
+							<tcs:LogisticsLocationInformation>
+								<tcs:LogisticsLocationType>011</tcs:LogisticsLocationType>
+								<tcs:LogisticsLocationCode map="TRADE_COUNTRY" format="n..5"  dec="运抵国"/>
+							</tcs:LogisticsLocationInformation>
+							<tcs:LogisticsLocationInformation>
+								<tcs:LogisticsLocationType>007</tcs:LogisticsLocationType>
+								<tcs:LogisticsLocationCode map="DESTINATION_PORT" format="n..5"  dec="抵运港"/>
+							</tcs:LogisticsLocationInformation>
+						</tcs:LogisticsLocationInformationList>
+						<tcs:EportLocationInformationList table="DECL_HEAD">
+							<tcs:EportLocationInformation>
+								<tcs:EportLocationTypeCode>001</tcs:EportLocationTypeCode>
+								<tcs:EportLocationCode map="DECL_PORT" format="n4"  dec="申报口岸"/>
+							</tcs:EportLocationInformation>
+							<tcs:EportLocationInformation>
+								<tcs:EportLocationTypeCode>003</tcs:EportLocationTypeCode>
+								<tcs:EportLocationCode map="I_E_PORT" format="n4"  dec="进口口岸"/>
+							</tcs:EportLocationInformation>
+						</tcs:EportLocationInformationList>
+						<tcs:BaseInformation table="DECL_HEAD">
+							<tcs:PreentryNo map="PRE_ENTRY_ID" format="an..18"  dec="预录入号"/>
+							<tcs:EntryType>001</tcs:EntryType>
+							<tcs:EntryTransitType>003</tcs:EntryTransitType>
+							<tcs:DeclareProperty map="ENTRY_TYPE" format="a3"  dec="报关形式类型" />
+							<tcs:TaxCorporationType map="PAYMENT_MARK" format="[n3]"  dec="纳税单位"/>
+							<tcs:DestinationCode map="DESTINATION_CODE" format="[n5]"  dec="境内目的地"/>
+							<tcs:WarehouseNo map="BONDED_NO" format="[an..32]"  dec="监管仓号"/>
+							<tcs:CYNo map="CUSTOMS_FIELD" format="[an..8]"  dec="货场代码"/>
+							<tcs:ContractNo map="CONTR_NO" format="[an..32]"  dec="合同协议号"/>
+							<tcs:EnrolNo map="MANUAL_NO" format="[an12]"  dec="备案号"/>
+							<tcs:ApprovalNo map="APPR_NO" format="[an..30]"  dec="批准文号"/>
+							<tcs:LicenseNo map="LICENSE_NO" format="[an..20]"  dec="许可证编号"/>
+							<tcs:RelativeEntryNo map="RELATIVE_ID" format="[an18]"  dec="关联报关单号"/>
+							<tcs:RelativeEnrolNo map="RELATIVE_MANUAL_NO" format="[an12]"  dec="关联备案号"/>
+							<tcs:MeansOfTransportName map="TRAF_NAME" format="[an..26]"  dec="运输工具名称"/>
+							<tcs:MeansOfTransportId map="VOYAGE_NO" format="[an..32]"  dec="航次号"/>
+							<tcs:BillOfLadingNo map="BILL_NO" format="[an..32]"  dec="提单号"/>
+							<tcs:PackingType map="WRAP_TYPE" format="[n1]"  dec="包装种类"/>
+							<tcs:MeansOfTransportMode map="TRAF_MODE" format="[an1]"  dec="运输方式"/>
+							<tcs:TransactionMode map="TRANS_MODE" format="[n1]"  dec="成交方式"/>
+							<tcs:TradeMode map="TRADE_MODE" format="[n4]"  dec="监管方式"/>
+							<tcs:CutMode map="CUT_MODE" format="[n3]"  dec="征免性质"/>
+							<tcs:ImportExportFlag map="I_E_FLAG" format="a1"  dec="进出口类型"/>
+							<tcs:Packages map="PACK_NO" format="[n..9]"  dec="件数"/>
+							<tcs:NetWeight map="NET_WT" format="[n..19,5]"  dec="净重"/>
+							<tcs:GrossWeight map="GROSS_WT" format="[n..19,5]"  dec="毛重"/>
+							<tcs:FreightMark map="FEE_MARK" format="[n1]"  dec="运费标记"/>
+							<tcs:FreightRate map="FEE_RATE" format="[n..19,7]"  dec="运费/率"/>
+							<tcs:FreightCurrency map="FEE_CURR" format="[n3]"  dec="运费币制"/>
+							<tcs:InsuranceMark map="INSUR_MARK" format="[n1]"  dec="保费标记"/>
+							<tcs:InsuranceRate map="INSUR_RATE" format="[n..19,7]"  dec="保费/率"/>
+							<tcs:InsuranceCurrency map="INSUR_CURR" format="[n3]"  dec="保费币制"/>
+							<tcs:ExtrasMark map="OTHER_MARK" format="[n1]"  dec="杂费标记"/>
+							<tcs:ExtrasRate map="OTHER_RATE" format="[n..19,7]"  dec="杂费/率"/>
+							<tcs:ExtrasCurrency map="OTHER_CURR" format="[n3]"  dec="杂费币制"/>
+							<tcs:PayMode map="PAY_MODE" format="[an1]"  dec="收结汇方式"/>
+							<tcs:SaleDomesticRatio map="IN_RATIO" format="[n..19,5]" dec="内销比率" />
+							<tcs:ImportExportDate map="I_E_DATE" format="[an10]" dec="进出口日期" />
+							<tcs:TransportDate map="D_DATE" format="[an10]" dec="传输日期" />
+							<tcs:Note map="NOTE_S" format="[an..255]" dec="报关备注" />
+							<tcs:DeclarantID  xsi:nil="true" />
+							<tcs:DeclarantTelephone  xsi:nil="true"  />
+							<tcs:EntrydeclarantNo  xsi:nil="true" />
+							<tcs:ICCardNo map="TYPIST_NO" format="[an13]" dec="录入员IC卡号" />
+							<tcs:Name map="TYPIST_NAME" format="[an..70]" dec="录入员姓名" />
+						</tcs:BaseInformation>
+						<tcs:GoodsInformationList table="DECL_LIST">
+							<tcs:GoodsInformation>
+								<tcs:No map="G_NO" format="n9" dec="商品序号" />
+								<tcs:HsCode map="CODE_TS" format="n10"  dec="商品编码"/>
+								<tcs:MaterialNo map="GOODS_ID" format="[an..30]" dec="货号" />
+								<tcs:GoodsName map="G_NAME" format="[an..255]" dec="中文品名" />
+								<tcs:EnglishName xsi:nil="true"/>
+								<tcs:Model map="G_MODEL" format="[an..255]" dec="规格型号"/>
+								<tcs:EnrolNo map="CONTR_ITEM" format="[n..5]" dec="备案序号" />
+								<tcs:Quantity map="G_QTY" format="[n..19,4]"  dec="成交数量"/>
+								<tcs:QuantityUnit map="G_UNIT" format="[an3]"  dec="成交单位"/>
+								<tcs:UnitPrice map="DECL_PRICE" format="[n..15,4]" dec="单价" />
+								<tcs:TotalPrice map="DECL_TOTAL" format="[n..17,2]" dec="总价" />
+								<tcs:Currency map="TRADE_CURR" format="[a3]"  dec="币制"/>
+								<tcs:FirstQuantity map="QTY_1" format="[n..19,4]"  dec="第一法定数量"/>
+								<tcs:FirstUnit map="UNIT_1" format="[an3]" dec="第一法定单位" />
+								<tcs:SecondQuantity map="QTY_2" format="[n..19,4]" dec="第二法定数量" />
+								<tcs:SecondUnit map="UNIT_2" format="[an3]" dec="第二法定单位" />
+								<tcs:OriginCode map="ORIGIN_COUNTRY" format="[a3]" dec="原产地" />
+								<tcs:Use map="USE_TO" format="[an..2]" dec="用途" />
+								<tcs:DutyMode map="DUTY_MODE" format="[n1]" dec="征免方式" />
+								<tcs:ProcessingCharges map="WORK_USD" format="[n17,2]" dec="工缴费" />
+								<tcs:GoodsVersion map="PRDT_NO" format="[n..8]" dec="版本号" />
+								<tcs:ClassificationMark map="CLASS_MARK" format="[an1]" dec="归类标志" />
+								<tcs:Note map="NOTE_S" format="[an..255]" dec="备注" />
+							</tcs:GoodsInformation>
+						</tcs:GoodsInformationList>
+						<tcs:EntryContainerInformationList table="DECL_CONTAINER">
+							<tcs:EntryContainerInformation>
+								<tcs:ContainerNo map="CONTAINER_ID" format="an..11"  dec="集装箱号"/>
+								<tcs:ContainerSize map="CONTAINER_MD" format="[a1]"  dec="集装箱规格"/>
+								<tcs:ContainerWeight map="CONTAINER_WT" format="[n..13,5]"  dec="集装箱自重"/>
+							</tcs:EntryContainerInformation>
+						</tcs:EntryContainerInformationList>
+						<tcs:DocumentAttachedInformationList table="DECL_CERTIFICATE">
+							<tcs:DocumentAttachedInformation>
+								<tcs:DocumentAttachedCode map="DOCU_CODE" format="an1" dec="随附单证代码" />
+								<tcs:DocumentAttachedNo map="CERT_CODE" format="[an..32]" dec="随附单证编号" />
+							</tcs:DocumentAttachedInformation>
+						</tcs:DocumentAttachedInformationList>
+					</tcs:EntryInformation>
+          <tcs:TransitInformation>
+            <tcs:TransitBaseInformation>
+              <tcs:TransitEportNo>519920141994173575</tcs:TransitEportNo>
+              <tcs:Note>test</tcs:Note>
+            </tcs:TransitBaseInformation>
+          </tcs:TransitInformation>
+					<tcs:SignInformation>
+			            <tcs:IccardNo>9200000005321</tcs:IccardNo>
+			            <tcs:Name>凌志铭</tcs:Name>
+			            <tcs:OrganizationCode>190784351</tcs:OrganizationCode>
+			            <tcs:SignInformation>A001</tcs:SignInformation>
+			            <tcs:SignDate>2011-12-25T10:40:05.90</tcs:SignDate>
+			            <tcs:CertificateNo>711bb5</tcs:CertificateNo>
+		           </tcs:SignInformation>
+				</tcs:DeclarationDocument>
+			</tcs:TcsData>
+		</tcs:TcsFlow201>
+	</MessageBody>
+</TCS101Message>
