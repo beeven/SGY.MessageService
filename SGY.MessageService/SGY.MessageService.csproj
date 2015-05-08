@@ -60,6 +60,7 @@
     <Compile Include="MessageServiceHelper.cs" />
     <Compile Include="Config\Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleWindowMessageService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -78,6 +79,10 @@
     <ProjectReference Include="..\SGY.MessageService.Interface\SGY.MessageService.Interface.csproj">
       <Project>{9e2eae9b-d68e-49de-a402-4a57679b4636}</Project>
       <Name>SGY.MessageService.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGY.MessageService.SingleWindow.Interface\SGY.MessageService.SingleWindow.Interface.csproj">
+      <Project>{09cb7084-183d-46a4-9749-28c5b3a1bc1c}</Project>
+      <Name>SGY.MessageService.SingleWindow.Interface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

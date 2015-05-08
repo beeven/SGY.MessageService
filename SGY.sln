@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.22609.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGY.MessageService", "SGY.MessageService\SGY.MessageService.csproj", "{58D27408-F0D7-4AD2-B7B8-08A2ADCD8EB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGY.Data", "SGY.Data\SGY.Data.csproj", "{F405C266-8FD3-423B-AF77-270385D147CC}"
@@ -19,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGY.Logging", "SGY.Logging\SGY.Logging.csproj", "{314907A2-35F6-44AA-B939-B1825846970C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGY.MessageService.WCFProxy", "SGY.MessageService.WCFProxy\SGY.MessageService.WCFProxy.csproj", "{494BABBA-F604-4046-BED6-C20D169EBDBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGY.MessageService.SingleWindow.Interface", "SGY.MessageService.SingleWindow.Interface\SGY.MessageService.SingleWindow.Interface.csproj", "{09CB7084-183D-46A4-9749-28C5B3A1BC1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +62,10 @@ Global
 		{494BABBA-F604-4046-BED6-C20D169EBDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{494BABBA-F604-4046-BED6-C20D169EBDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{494BABBA-F604-4046-BED6-C20D169EBDBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CB7084-183D-46A4-9749-28C5B3A1BC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CB7084-183D-46A4-9749-28C5B3A1BC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CB7084-183D-46A4-9749-28C5B3A1BC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CB7084-183D-46A4-9749-28C5B3A1BC1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
