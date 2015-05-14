@@ -1,9 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Xml.Linq;
 using System.ServiceModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GZCustoms.Application.SGY.MessageService;
 using GZCustoms.Application.SGY.MessageService.Interface;
 using GZCustoms.Application.SGY.Entity;

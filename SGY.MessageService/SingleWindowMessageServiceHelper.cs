@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 using GZCustoms.Application.SGY.Data;
 using GZCustoms.Application.SGY.Data.Interface;
@@ -10,27 +11,50 @@ using GZCustoms.Application.SGY.Entity;
 using GZCustoms.Application.SGY.Logging;
 using GZCustoms.Application.SGY.MessageService.Common;
 using GZCustoms.Application.SGY.MessageService.Config;
-using GZCustoms.Application.SGY.MessageService.SingleWindow.Interface;
-using GZCustoms.Application.SGY.MessageService.SingleWindow.Interface.Entities;
+using GZCustoms.Application.SGY.MessageService.Interface;
 
 namespace GZCustoms.Application.SGY.MessageService
 {
-    public class SingleWindowMessageService : IMessageService
+    public class SingleWindowMessageServiceHelper
     {
         public string GetCusCiqNo(string ieFlag, string locationCode)
         {
-            throw new NotImplementedException();
+            LogHelper logHelper = LogHelper.GetInstance();
+            try
+            {
+                var cusCiqNo = new CusCiqNoInfo() { IeFlag = ieFlag, LocationCode = locationCode, CusCiqNo = string.Empty };
+                if (!new EntityValidator<CusCiqNoInfo>().Validate(cusCiqNo))
+                    throw new Exception(Context.ErrIeFlagOrLocalCodeInValid);
+                IPreserveDataHelper dataHelper = DataHelperFactory.GetPreserveDataHelper();
+                int index = dataHelper.GetCusCiqIndex(cusCiqNo.IeFlag, cusCiqNo.LocationCode);
+                string indexStr = index.ToString();
+                cusCiqNo.CusCiqNo = string.Format("{0}{1}{2}{3}", ieFlag, DateTime.Now.ToString("yyMMdd"), locationCode, indexStr.PadLeft(5, '0'));
+                //记录操作日志
+                logHelper.LogOperation(string.Format("GetCusCiqNo 获取关检关联号,IeFlag:{0},LocationCode:{1},CusCiqNo:{2}",
+                    ieFlag, locationCode, cusCiqNo.CusCiqNo), Context.GetCusCiqNoEventId, "GetCusCiqNo");
+                if (ConfigInfo.DeclType == 0 && ieFlag == "1")
+                    throw new Exception("目前只允许出口业务类型");
+                if (ConfigInfo.DeclType == 1 && ieFlag == "0")
+                    throw new Exception("目前只允许进口业务类型");
+
+                return cusCiqNo.CusCiqNo;
+            }
+            catch (Exception ex)
+            {
+                logHelper.LogErrInfo(ex.Message, Context.GetCusCiqNoEventId, "GetCusCiqNo");
+                return GetErrInfo(Context.ErrGetCusCiqNo, Context.GetCusCiqNoEventId);
+            }
         }
 
-        public MsgReceipt PostMessage(string cusCiqNo, string msgXml)
+        public MesReceipt PostMessage(string cusCiqNo, string msgXml)
         {
-            var receipt = new MsgReceipt();
+            var receipt = new MesReceipt();
             LogHelper logHelper = LogHelper.GetInstance();
             try
             {
                 CusCiqNoInfo cusCiqNoInfo = new CusCiqNoInfo { CusCiqNo = cusCiqNo };
 
-                var cusDataMsg = new CusDataMsg { MessageXml = msgXml, CusCiqNo = cusCiqNoInfo };
+                var cusDataMsg = new CusDataMsg { KeyValue = "SingleWindow", MachineCode = "SingleWindow", MessageXml = msgXml, CusCiqNo = cusCiqNoInfo };
                 IMessageDataHelper dataHelper = DataHelperFactory.GetMessageDataHelper();
                 //检查激活码
                 //if (!Utility.CheckKey(dataHelper.GetKeyInfo(keyValue, machineCode)))
@@ -39,9 +63,8 @@ namespace GZCustoms.Application.SGY.MessageService
                 //    receipt.Message = GetErrInfo(Context.ErrKeyValueInvalid, Context.ErrKeyValueInvalidId);
                 //    return receipt;
                 //}
-
                 cusDataMsg = Utility.FormatCusDataMsg(cusDataMsg, dataHelper.GetMaxTcsCurrentId(), ConfigInfo.TscIdHead, ConfigInfo.DocumentNo);
-                receipt.DateReceived = DateTime.Now.ToString("yyyyMMddHHmmss");
+                receipt.RDate = DateTime.Now.ToString("yyyyMMddHHmmss");
                 DeclHelper declHelper = new DeclHelper();
                 DeclEnvelopHead msgHeader = declHelper.GetEnvelopHeader(msgXml);
                 #region 生成TCS报文
@@ -64,67 +87,18 @@ namespace GZCustoms.Application.SGY.MessageService
                 receipt.MessagID = cusDataMsg.TaskId;
 
                 //记录操作日志
-                logHelper.LogOperation(string.Format("PostMessage 上载报文（到QP）,CusCiqNo:{0}",
-                    cusCiqNo), Context.SendMessageEventId, "PostMessage", "SingleWindow");
+                logHelper.LogOperation(string.Format("SendMessage 上载报文（到QP）,KeyValue:{0},Machinecode:{1},CusCiqNo:{2}",
+                    "SingleWindow", "SingleWindow", cusCiqNo), Context.SendMessageEventId, "SendMessage", "SingleWindow");
                 return receipt;
             }
             catch (Exception ex)
             {
                 receipt.Status = "001";
                 receipt.Message = GetErrInfo(Context.ErrSendMessage, Context.SendMessageEventId);
-                logHelper.LogErrInfo(ex.Message, Context.SendMessageEventId, "PostMessage", "SingleWindow", msgXml);
+                logHelper.LogErrInfo(ex.Message, Context.SendMessageEventId, "SendMessage", "SingleWindow", msgXml);
                 return receipt;
             }
         }
-
-
-
-        #region 回执处理
-
-
-
-
-
-        /// <summary>
-        /// 下载报关回执
-        /// </summary>
-        /// <param name="keyValue">激活码</param>
-        /// <param name="machineCode">机器代码</param>
-        /// <param name="taskId">任务ID</param>
-        /// <returns>回执内容</returns>
-        public IEnumerable<CusReturn> GetMsgRep(string keyValue, string machineCode, string taskId)
-        {
-            LogHelper logHelper = LogHelper.GetInstance();
-            try
-            {
-                IMessageDataHelper dataHelper = DataHelperFactory.GetMessageDataHelper();
-                ////检查激活码是否有效
-                //if (!Utility.CheckKey(dataHelper.GetKeyInfo(keyValue, machineCode)))
-                //{
-                //    return new List<CusReturn>() { new CusReturn() { ReturnInfo = GetErrInfo(Context.ErrKeyValueInvalid, Context.ErrKeyValueInvalidId) } };
-                //}
-                return dataHelper.GetReceiveMsgRep(taskId).Select(x => new CusReturn()
-                {
-                    CusCiqNo = x.CusCiqNo,
-                    EntryNo = x.EntryNo,
-                    EportNo = x.EportNo,
-                    ReturnCode = x.ReturnCode,
-                    ReturnInfo = x.ReturnInfo,
-                    ReturnType = x.ReturnType,
-                    Status = x.Status,
-                    TaskId = x.TaskId
-                });
-            }
-            catch (Exception ex)
-            {
-                logHelper.LogErrInfo(ex.Message, Context.GetSaveTimeEventId, "GetSaveTime", keyValue);
-                return new List<CusReturn>() { new CusReturn() { ReturnInfo = GetErrInfo(Context.ErrKeyValueInvalid, Context.ErrKeyValueInvalidId) } };
-            }
-        }
-
-        #endregion
-
-     
 
 
         private string GetFileName(string path)

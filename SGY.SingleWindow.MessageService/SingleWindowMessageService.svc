@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="GZCustoms.Application.SGY.SingleWindow.MessageService.SingleWindowMessageService" CodeBehind="SingleWindowMessageService.svc.cs" %>
