@@ -21,7 +21,7 @@ namespace GZCustoms.Application.SGY.SingleWindow.MessageService
         /// <param name="ieFlag">进出口标识，1为进口，0为出口</param>
         /// <param name="locationCode">现场代码（4位）</param>
         /// <returns>关检关联号（16位）</returns>
-        public string GetCusCiqNo(String ieFlag, String locationCode)
+        public string GetCusCiqNum(String ieFlag, String locationCode)
         {
             return helper.GetCusCiqNo(ieFlag, locationCode);
         }
@@ -29,17 +29,34 @@ namespace GZCustoms.Application.SGY.SingleWindow.MessageService
         /// <summary>
         /// 上载报文（到QP）
         /// </summary>
-        /// <param name="cusCiqNo">关检关联号</param>
-        /// <param name="msgXml">报文内容</param>
+        /// <param name="cusCiqNum">关检关联号</param>
+        /// <param name="message">报文内容</param>
         /// <returns>上传回执</returns>
-        public MsgReceipt PostMessage(string cusCiqNo, string msgXml)
+        public MsgReceipt PostMessage(string cusCiqNum, string message)
         {
-            return (MsgReceipt)helper.PostMessage(cusCiqNo, msgXml);
+            return (MsgReceipt)helper.PostMessage(cusCiqNum, message);
         }
+
 
         public string Hello()
         {
             return "World";
+        }
+        public string Hello(string firstName, string lastName)
+        {
+            return String.Format("Hello, {0} {1}", firstName, lastName);
+        }
+
+        /// <summary>
+        /// 下载报关回执
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <returns></returns>
+        public IEnumerable<CusReturn> GetCusReceipt(string taskId)
+        {
+            var ret = helper.ReceiveMsgRep(taskId);
+            var r2 = ret.Select(x => (CusReturn)x);
+            return r2;
         }
     }
 }

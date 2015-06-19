@@ -217,6 +217,10 @@ namespace GZCustoms.Application.SGY.MessageService.Interface
         /// </summary>
         public string EportNo { get; set; }
 
+        public DateTime DateCreated { get; set; }
+
+        public string MessageId { get; set; }
+
         public static explicit operator  CusReturnInfo(CusReturnInfo2 info)
         {
             return new CusReturnInfo(){

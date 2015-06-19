@@ -94,9 +94,26 @@ namespace GZCustoms.Application.SGY.MessageService
             catch (Exception ex)
             {
                 receipt.Status = "001";
-                receipt.Message = GetErrInfo(Context.ErrSendMessage, Context.SendMessageEventId);
+                receipt.Message = GetErrInfo(Context.ErrSendMessage, Context.SendMessageEventId) +"\nMessage:"+ ex.Message + "\nStackTrace:" + ex.StackTrace;
                 logHelper.LogErrInfo(ex.Message, Context.SendMessageEventId, "SendMessage", "SingleWindow", msgXml);
                 return receipt;
+            }
+        }
+
+
+        public IEnumerable<CusReturnInfo2> ReceiveMsgRep(string taskId)
+        {
+            LogHelper logHelper = LogHelper.GetInstance();
+            try
+            {
+                IMessageDataHelper dataHelper = DataHelperFactory.GetMessageDataHelper();
+                var ret = dataHelper.GetReceiveMsgRep(taskId);
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                logHelper.LogErrInfo(ex.Message, Context.GetSaveTimeEventId, "GetSaveTime", "SingleWindow");
+                return new List<CusReturnInfo2>() { new CusReturnInfo2() { ReturnInfo = GetErrInfo(Context.ErrKeyValueInvalid, Context.ErrKeyValueInvalidId) } };
             }
         }
 

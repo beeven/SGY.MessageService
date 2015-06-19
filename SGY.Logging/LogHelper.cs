@@ -39,7 +39,7 @@ namespace GZCustoms.Application.SGY.Logging
 
         private void LogInfo(string errMessage, int eventId, string title, string category, string source)
         {
-            LogInfo(errMessage, eventId, title, category, source, string.Empty);
+            LogInfo(errMessage, eventId, title, category, source, null);
         }
 
         private void LogInfo(string errMessage, int eventId, string title, string category)

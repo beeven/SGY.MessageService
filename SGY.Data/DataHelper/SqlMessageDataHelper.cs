@@ -20,7 +20,8 @@ using GZCustoms.Application.SGY.Data.Interface;
 using GZCustoms.Application.SGY.Data.Config;
 using GZCustoms.Application.SGY.Entity;
 using GZCustoms.Application.SGY.MessageService.Interface;
-
+using System.Data.SqlTypes;
+using System.Xml;
 
 namespace GZCustoms.Application.SGY.Data.DataHelper
 {
@@ -197,6 +198,8 @@ namespace GZCustoms.Application.SGY.Data.DataHelper
                .Map(g => g.Status).ToColumn("STATUS")
                .Map(g => g.EntryNo).ToColumn("ENTRY_NO")
                .Map(g => g.EportNo).ToColumn("EPORT_NO")
+               .Map(g => g.DateCreated).ToColumn("CREATE_DATE")
+               .Map(g => g.MessageId).ToColumn("OID")
                .Build();
             return Db.ExecuteSqlStringAccessor<CusReturnInfo2>(Context.SqlGetCusReturn, mapper)
                 .Where(e => e.TaskId == taskId);
@@ -215,7 +218,7 @@ namespace GZCustoms.Application.SGY.Data.DataHelper
             Db.AddInParameter(cmd, "LOG_DATE", DbType.String, log.LogTime);
             Db.AddInParameter(cmd, "EVENT_ID", DbType.Int32, log.EventId);
             Db.AddInParameter(cmd, "SOURCE", DbType.String, log.Source);
-            Db.AddInParameter(cmd, "MESSAGE", DbType.Xml, log.Message);
+            Db.AddInParameter(cmd, "MESSAGE", DbType.Xml, log.Message != null ? new SqlXml(XmlReader.Create( new System.IO.StringReader(log.Message))) : null);
             Db.ExecuteNonQuery(cmd);
         }
     }

@@ -42,6 +42,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -75,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SingleWindowMessageServiceHelperTest.cs" />
     <Compile Include="WCFProxyTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\GZCustoms.Application.SGY.MessageService.Interface.CusReturnInfo.datasource" />
     <None Include="Properties\DataSources\GZCustoms.Application.SGY.MessageService.Interface.MesReceipt.datasource" />
     <None Include="Properties\DataSources\GZCustoms.Application.SGY.MessageService.Interface.SaveModel.datasource" />
@@ -141,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference1\MessageServiceWCF1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="msg.xml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
