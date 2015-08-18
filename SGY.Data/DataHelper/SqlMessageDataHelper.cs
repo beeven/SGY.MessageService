@@ -151,7 +151,7 @@ namespace GZCustoms.Application.SGY.Data.DataHelper
             Db.AddInParameter(cmd, "GUID", DbType.String, msg.MsgGuid);
             Db.AddInParameter(cmd, "KEY_VALUE", DbType.String, msg.KeyValue);
             Db.AddInParameter(cmd, "MACHINE_CODE", DbType.String, msg.MachineCode);
-            Db.AddInParameter(cmd, "MESSAGE", DbType.Xml, msg.MessageXml);
+            Db.AddInParameter(cmd, "MESSAGE", DbType.Xml, msg.MessageXml != null ? new SqlXml(XmlReader.Create(new System.IO.StringReader(msg.MessageXml))) : null);
             Db.AddInParameter(cmd, "DECL_TIME", DbType.DateTime, msg.DeclTime);
             Db.AddInParameter(cmd, "DECL_DATE", DbType.Date, msg.DeclTime.Date);
             Db.AddInParameter(cmd, "TCS_MSGID", DbType.String, msg.MessageId);

@@ -62,7 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SingleWindowMessageService.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Xml\map.xml" />
+    <Content Include="Xml\map_transit.xml" />
+    <Content Include="Xml\Upgrade.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\CusReturn.cs" />

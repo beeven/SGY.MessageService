@@ -50,7 +50,7 @@
 			<FEE_RATE />
 			<INSUR_CURR />
 			<INSUR_MARK />
-			<INSUR_RATE />
+			<INSUR_RATE>0.0000000</INSUR_RATE>
 			<OTHER_CURR />
 			<OTHER_MARK />
 			<OTHER_RATE />

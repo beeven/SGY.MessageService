@@ -65,7 +65,12 @@ namespace GZCustoms.Application.SGY.MessageService.Common
             //GoodsInformationList
             ParseGoodsInformationList(entryInfoEle.Element(tcs + "GoodsInformationList"), declListsEle, tcs);
             //EntryContainerInformationList
-            ParseEntryContainerInformationList(entryInfoEle.Element(tcs + "EntryContainerInformationList"), declContainersEle, tcs);                
+
+            if(declContainersEle != null)
+            {
+                ParseEntryContainerInformationList(entryInfoEle.Element(tcs + "EntryContainerInformationList"), declContainersEle, tcs);
+            }
+                                
             //DocumentAttachedInformationList
             ParseDocumentAttachedInformationList(entryInfoEle.Element(tcs + "DocumentAttachedInformationList"), declCertificates, tcs);
 
